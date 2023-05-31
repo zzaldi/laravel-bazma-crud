@@ -9,7 +9,8 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        return view("pages.categories.index");
+        $allCategories = \App\Models\CategoriesBooks::latest()->get();
+        return view("pages.categories.index", compact($allCategories));
     }
     public function create()
     {
